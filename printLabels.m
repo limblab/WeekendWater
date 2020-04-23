@@ -6,7 +6,8 @@ satStr = datestr(satDate,'yyyy-mm-dd'); % datestr from datenum
 WaterSheetFile = [WaterSheetFile, satStr, ' weekend water and food Miller NHPs.xlsx'];
 % find if it exists, if not search using the GUI
 while ~exist(WaterSheetFile,'file')
-    WaterSheetFile = uigetfile('*.xlsx','Find the weekend water spreadsheet please');
+    [WaterSheetFile,WaterSheetPath] = uigetfile('*.xlsx','Find the weekend water spreadsheet please');
+    WaterSheetFile = [WaterSheetPath,filesep,WaterSheetFile];
 end
     
 WeekendWateringFile = '\\fsmresfiles.fsm.northwestern.edu\fsmresfiles\Basic_Sciences\Phys\L_MillerLab\limblab\lab_folder\Lab-Wide Animal Info\WeekendWatering\MonkeyWaterData.xlsx';
